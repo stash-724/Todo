@@ -19,20 +19,22 @@ const Create = (props) => {
     };
 
     return (
-        <>
-            <h1>Create Task</h1>
+        <div className='p-10 w-[65%] border rounded'>
+            <h1 className='text-5xl font-thin mb-10'>Set <span className='text-red-400'>Reminders</span> for Tasks</h1>
             <form onSubmit={submitHandler}>
                 <input
+                    className='p-2 border-b w-[100%] font-thin text-2xl outline-0 mb-10'
                     onChange={(e) => settitle(e.target.value)}
                     value={title}
+                    placeholder='title'
                     type="text"
                 />
                 <br />
-                <button>Create Todo</button>
+                <button className='text-xl px-10 py-2 border rounded'>Create Todo</button>
                 <br />
             </form>
-        </>
-    );
+        </div>
+    );  
 };
 
 export default Create;
