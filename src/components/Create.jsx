@@ -1,11 +1,12 @@
 import { nanoid } from 'nanoid';
+import { useContext } from 'react';
 import { useForm } from 'react-hook-form'; 
 import { toast } from 'react-toastify';
+import { todoContext } from '../Wrapper';
 
 const Create = (props) => {
+    const [todos,settodos] = useContext(todoContext);
 
-    const todos = props.todos;
-    const settodos = props.settodos;
     const { register, handleSubmit, reset, formState: { errors }, } = useForm();
     const submitHandler = (data) => {
         data.id = nanoid();
@@ -13,7 +14,7 @@ const Create = (props) => {
         const copyTodos = [...todos, data];
         settodos(copyTodos);
         reset();
-        toast.success('Todo Create Successfully');
+        toast.success('Todo Created Successfully');
     };
 
     return (
